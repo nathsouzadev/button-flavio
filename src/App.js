@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Typist from 'react-typist';
 
-function App() {
+const App = () => {
+  const [texto, setTexto] = useState('');
+
+  function flavio(){
+    if (!texto) {
+      const p = <Typist>
+                Que Deus nos abençoe e nos proteja &#129305; &#9917; &#128421;
+              </Typist>
+      setTexto(p)
+    } else {
+      setTexto('')
+    }
+    
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="card text-center bg-success mb-3 card-flavio">
+      <div className="card-header">
+        Fala Flávio!
+      </div>
+      <div className="card-body">
+        <button className="btn btn-warning" onClick={flavio}>Chama o Flávio!</button>
+        <p className="card-text mt-3">{texto}</p>
+      </div>
+      <div className="card-footer text-light">
+        &copy; Nathally Souza
+      </div>
     </div>
   );
 }
